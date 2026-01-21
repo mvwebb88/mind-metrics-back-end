@@ -28,6 +28,17 @@ router.get("/", verifyToken, async (req, res) => {
     }
 });
 
+// GET /dailylogs/:logId
+router.get('/:logId', verifyToken, async (req, res) => {
+    try {
+        // populate userId of dailyLog
+        const dailyLog = await DailyLog.findById(req.params.logId).populate('userId');
+        res.status(200).json(dailyLog);
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+});
+
 
 
 
