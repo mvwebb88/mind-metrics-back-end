@@ -28,14 +28,14 @@ const dailyLogSchema = new mongoose.Schema(
             ],
             required: true,
         },
-        streesLevel: {
+        stressLevel: {
             type: Number,
-            enum: [1, 1, 3, 4, 5],
+            enum: [1, 2, 3, 4, 5],
             required: true,
         },
         focusLevel: {
             type: Number,
-            enum: [1, 1, 3, 4, 5],
+            enum: [1, 2, 3, 4, 5],
             required: true,
         },
         sleepHours: {
