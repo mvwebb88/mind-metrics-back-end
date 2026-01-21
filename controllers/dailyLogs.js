@@ -16,6 +16,18 @@ router.post("/", verifyToken, async (req, res) => {
     }
 });
 
+// GET /dailylogs
+router.get("/", verifyToken, async (req, res) => {
+    try {
+        const dailyLogs = await DailyLog.find({})
+            .populate("userId")
+            .sort({ createdAt: "desc" });
+        res.status(200).json(dailyLogs);
+    } catch (err) {
+        res.status(500).json({ err: err.message });
+    }
+});
+
 
 
 
