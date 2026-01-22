@@ -3,8 +3,7 @@ const verifyToken = require("../middleware/verify-token.js");
 const Goal = require("../models/goal.js");
 const router = express.Router();
 
-//POST: crear  goal por usuario
-
+//POST: CREATE A GOAL PER USER
 router.post("/", verifyToken, async (req, res) => {
     try {
         req.body.userId = req.user._id;
@@ -18,7 +17,7 @@ router.post("/", verifyToken, async (req, res) => {
     }
 });
 
-//GET: LIST GOALS POR USUARIO
+//GET: LIST GOALS PER USER
 router.get("/", verifyToken, async (req, res) => {
     try {
         const goals = await Goal.find({ userId: req.user._id }).sort({
@@ -31,7 +30,6 @@ router.get("/", verifyToken, async (req, res) => {
 });
 
 //GET: 1 GOAL
-
 router.get("/:goalId", verifyToken, async (req, res) => {
     try {
         const goal = await Goal.findById(req.params.goalId);
@@ -46,7 +44,7 @@ router.get("/:goalId", verifyToken, async (req, res) => {
     }
 });
 
-// PUT: UPDATE GOALS
+// PUT: UPDATE A GOAL
 router.put("/:goalId", verifyToken, async (req, res) => {
     try {
         const goal = await Goal.findById(req.params.goalId);
@@ -69,7 +67,7 @@ router.put("/:goalId", verifyToken, async (req, res) => {
     }
 });
 
-//DELETE GOALS
+//DELETE A GOAL
 router.delete("/:goalId", verifyToken, async (req, res) => {
     try {
         const goal = await Goal.findById(req.params.goalId);
