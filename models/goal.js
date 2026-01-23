@@ -42,6 +42,11 @@ const goalSchema = new mongoose.Schema(
         },
         status: {
             type: String,
+            enum: [
+                "Active",
+                "Completed",
+                "Paused",
+            ],
             required: true,
         },
     }, {
