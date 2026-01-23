@@ -13,7 +13,6 @@ const goalSchema = new mongoose.Schema(
         },
         description: {
             type: String,
-            required: true,
         },
         targetMetric: {
             type: String,
@@ -31,6 +30,7 @@ const goalSchema = new mongoose.Schema(
         },
         targetValue: {
             type: Number,
+            min: [0, 'Target value must be at least 0'],
             required: true,
         },
         startDate: {
