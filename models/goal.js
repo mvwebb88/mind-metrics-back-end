@@ -22,7 +22,7 @@ const goalSchema = new mongoose.Schema(
                 "meditationMin",
                 "waterCups",
                 "dietScore",
-                "screenMin",
+                "screenHours",
                 "workHours",
                 "hobbyMin",
             ],
