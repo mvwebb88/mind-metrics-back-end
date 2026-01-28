@@ -12,6 +12,7 @@ const dailyLogsRouter = require('./controllers/dailyLogs');
 const goalsRouter = require('./controllers/goals');
 
 mongoose.connect(process.env.MONGODB_URI);
+const PORT = process.env.PORT
 
 mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -28,6 +29,6 @@ app.use('/dailylogs', dailyLogsRouter);
 app.use('/goals', goalsRouter);
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('The express app is ready!');
 });
