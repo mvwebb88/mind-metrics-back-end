@@ -26,7 +26,7 @@ app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 
-// Latest dashboard endpoint
+// Latest dashboard endpoint for weather API
 app.get("/dashboard/latest", verifyToken, async (req, res) => {
     try {
         const userId = req.user._id;
